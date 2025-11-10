@@ -44,3 +44,7 @@ pip install -r requirements.txt
 
 # Run the app
 python app.py
+
+#Docker 
+or just simply ""docker compose up -d ""
+docker file is iran friendly no need for vpn enjoy 
