@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  code-checker:
+    build: .
+    container_name: code-similarity-checker
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount the current directory to /app for development
+      - .:/app
+      # Persist uploaded files (optional)
+      - uploads:/app/uploads
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+    restart: unless-stopped
+    networks:
+      - app-network
+
+volumes:
+  uploads:
+
+networks:
+  app-network:
+    driver: bridge
